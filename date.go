@@ -557,7 +557,7 @@ func ParseDateIntoMonthDay(s string) (MonthDay, error) {
 		return md, err
 	}
 
-	day, err := ParseNumber(parts[0])
+	day, err := ParseCount(parts[0])
 	if err != nil {
 		return md, err
 	}
