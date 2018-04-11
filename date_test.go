@@ -17,7 +17,7 @@ func TestMonthDayMarshal(t *testing.T) {
 	md := NewMonthDay("12-15")
 	d, err := md.MarshalJSON()
 	assert.Equal(t, nil, err)
-	assert.Equal(t, "12-15", string(d))
+	assert.Equal(t, `"12-15"`, string(d))
 }
 
 func TestMonthDayUnmarshal(t *testing.T) {
