@@ -56,3 +56,13 @@ func TestPresentEN(t *testing.T) {
 		assert.Equal(t, s, PresentEnUS(i))
 	}
 }
+
+func TestPresentListSV(t *testing.T) {
+	assert.Equal(t, "trims och trams", PresentListSvSE([]string{"trims", "trams"}))
+	assert.Equal(t, "trims, trams och trums", PresentListSvSE([]string{"trims", "trams", "trums"}))
+}
+
+func TestPresentListEN(t *testing.T) {
+	assert.Equal(t, "trims and trams", PresentListEnUS([]string{"trims", "trams"}))
+	assert.Equal(t, "trims, trams and trums", PresentListEnUS([]string{"trims", "trams", "trums"}))
+}

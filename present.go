@@ -148,3 +148,17 @@ func presentEN(num int64) (string, error) {
 
 	return "", fmt.Errorf("too big")
 }
+
+// PresentListSvSE presents a list of strings as "a, b och c"
+func PresentListSvSE(list []string) string {
+	last := list[len(list)-1]
+	rest := list[0 : len(list)-1]
+	return strings.Join(rest, ", ") + " och " + last
+}
+
+// PresentListEnUS presents a list of strings as "a, b and c"
+func PresentListEnUS(list []string) string {
+	last := list[len(list)-1]
+	rest := list[0 : len(list)-1]
+	return strings.Join(rest, ", ") + " and " + last
+}
