@@ -32,6 +32,10 @@ func TestParseDateIntoMonthDay(t *testing.T) {
 	md, err := ParseDateIntoMonthDay("15 december")
 	assert.Equal(t, nil, err)
 	assert.Equal(t, "12-15", md.String())
+
+	md, err = ParseDateIntoMonthDay("den 31 augusti")
+	assert.Equal(t, nil, err)
+	assert.Equal(t, "08-31", md.String())
 }
 
 func TestParseYear(t *testing.T) {

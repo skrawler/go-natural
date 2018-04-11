@@ -540,14 +540,18 @@ func NewMonthDay(s string) MonthDay {
 
 // ParseDateIntoMonthDay parses "15 december" into "12-15" (MM-DD) format
 func ParseDateIntoMonthDay(s string) (MonthDay, error) {
+	if len(s) > 3 {
+		if s[0:4] == "den " || s[0:4] == "the " {
+			s = s[4:]
+		}
+	}
 	md := MonthDay{}
-	var err error
-
 	parts := strings.SplitN(s, " ", 2)
 	if len(parts) != 2 {
 		return md, fmt.Errorf("not 2 parts")
 	}
 
+	var err error
 	md.Month, err = ParseMonth(parts[1])
 	if err != nil {
 		return md, err
